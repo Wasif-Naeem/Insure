@@ -1,12 +1,71 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "D:\\My projects\\Insure\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{7404A94D-ED3A-A85E-5335-32B90822DA0F}|Insure\\Insure.csproj|d:\\my projects\\insure\\insure\\models\\employee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7404A94D-ED3A-A85E-5335-32B90822DA0F}|Insure\\Insure.csproj|solutionrelative:insure\\models\\employee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7404A94D-ED3A-A85E-5335-32B90822DA0F}|Insure\\Insure.csproj|d:\\my projects\\insure\\insure\\models\\companydetails.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7404A94D-ED3A-A85E-5335-32B90822DA0F}|Insure\\Insure.csproj|solutionrelative:insure\\models\\companydetails.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7404A94D-ED3A-A85E-5335-32B90822DA0F}|Insure\\Insure.csproj|d:\\my projects\\insure\\insure\\models\\adminlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7404A94D-ED3A-A85E-5335-32B90822DA0F}|Insure\\Insure.csproj|solutionrelative:insure\\models\\adminlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Employee.cs",
+              "DocumentMoniker": "D:\\My projects\\Insure\\Insure\\Models\\Employee.cs",
+              "RelativeDocumentMoniker": "Insure\\Models\\Employee.cs",
+              "ToolTip": "D:\\My projects\\Insure\\Insure\\Models\\Employee.cs",
+              "RelativeToolTip": "Insure\\Models\\Employee.cs",
+              "ViewState": "AgIAACQAAAAAAAAAAAAAAC8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-01T00:50:43.821Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "CompanyDetails.cs",
+              "DocumentMoniker": "D:\\My projects\\Insure\\Insure\\Models\\CompanyDetails.cs",
+              "RelativeDocumentMoniker": "Insure\\Models\\CompanyDetails.cs",
+              "ToolTip": "D:\\My projects\\Insure\\Insure\\Models\\CompanyDetails.cs",
+              "RelativeToolTip": "Insure\\Models\\CompanyDetails.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-01T00:47:29.76Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AdminLogin.cs",
+              "DocumentMoniker": "D:\\My projects\\Insure\\Insure\\Models\\AdminLogin.cs",
+              "RelativeDocumentMoniker": "Insure\\Models\\AdminLogin.cs",
+              "ToolTip": "D:\\My projects\\Insure\\Insure\\Models\\AdminLogin.cs",
+              "RelativeToolTip": "Insure\\Models\\AdminLogin.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-01T00:37:58.992Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
     }
   ]
 }
