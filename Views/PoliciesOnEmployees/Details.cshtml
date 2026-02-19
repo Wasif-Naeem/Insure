@@ -1,0 +1,197 @@
+﻿@model Health_Insurance.Models.PoliciesOnEmployees
+@{
+    ViewData["Title"] = "Policy Assignment Report";
+    Layout = "_AdminLayout";
+}
+
+<div class="container mt-4 print-container" style="max-width:900px;">
+
+    <!-- TOP ACTION BAR (NOT PRINT) -->
+    <div class="d-flex justify-content-between align-items-center mb-3 no-print">
+        <h2 class="text-primary">@ViewData["Title"]</h2>
+        <button onclick="window.print()" class="btn btn-primary">
+            <i class="fas fa-print me-2"></i>Print
+        </button>
+    </div>
+
+    <!-- PRINT DOCUMENT -->
+    <div class="print-document p-4">
+
+        <!-- COMPANY HEADER -->
+        <div class="text-center border-bottom pb-3 mb-4">
+            <img src="~/webAssets/img/icon/icon-02-primary.png" alt="Company Logo" height="70" />
+            <h3 class="mt-2 mb-0 fw-bold">Insure</h3>
+            <small>www.healthinsurance.com | support@healthinsurance.com</small>
+        </div>
+
+        <!-- DOCUMENT TITLE -->
+        <div class="text-center mb-4">
+            <h4 class="fw-bold text-uppercase">Policy Assignment Details</h4>
+            <small>
+                Report Generated On: @DateTime.Now.ToString("dd MMM yyyy hh:mm tt")
+            </small>
+        </div>
+
+        <!-- DETAILS TABLE -->
+        <table class="table table-bordered">
+            <tr>
+                <th width="35%">Employee Name</th>
+                <td>@Model.Employee?.FirstName @Model.Employee?.LastName</td>
+            </tr>
+            <tr>
+                <th>Policy Name</th>
+                <td>@Model.PolicyName</td>
+            </tr>
+            <tr>
+                <th>Insurance Company</th>
+                <td>@Model.CompanyName</td>
+            </tr>
+            <tr>
+                <th>Policy Amount</th>
+                <td>@Model.PolicyAmount?.ToString("N0") PKR</td>
+            </tr>
+            <tr>
+                <th>Monthly EMI</th>
+                <td>@Model.Emi?.ToString("N0") PKR</td>
+            </tr>
+            <tr>
+                <th>Policy Start Date</th>
+                <td>@Model.PStartDate?.ToString("dd MMM yyyy")</td>
+            </tr>
+            <tr>
+                <th>Policy End Date</th>
+                <td>@Model.PEndDate?.ToString("dd MMM yyyy")</td>
+            </tr>
+            <tr>
+                <th>Status</th>
+                <td>@Model.Status</td>
+            </tr>
+            <tr>
+                <th>Remarks</th>
+                <td>@Model.Remarks</td>
+            </tr>
+        </table>
+
+        <!-- SIGNATURE SECTION -->
+        <div class="row mt-5">
+            <div class="col-6 text-start">
+                ___________________________<br />
+                <strong>Authorized Signature</strong>
+            </div>
+            <div class="col-6 text-end">
+                ___________________________<br />
+                <strong>Employee Signature</strong>
+            </div>
+        </div>
+
+        <!-- FOOTER -->
+        <div class="text-center mt-5 border-top pt-3">
+            <small>
+                This is a system generated document and does not require a physical signature.
+            </small>
+        </div>
+
+    </div>
+
+    <!-- BACK BUTTON -->
+    <div class="mt-3 no-print">
+        <a asp-action="Index" class="btn btn-secondary">Back</a>
+    </div>
+
+</div>
+
+<style>
+    /* ================= SCREEN VIEW ================= */
+    body {
+        background: linear-gradient(135deg, #eef2f7, #d9e4f5);
+    }
+
+    /* DOCUMENT CARD (SCREEN) */
+    .print-document {
+        background: #ffffff;
+        border-radius: 12px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        border: 1px solid #e3e6f0;
+    }
+
+        /* HEADER */
+        .print-document h3 {
+            color: #2c3e50;
+            letter-spacing: 1px;
+        }
+
+        .print-document h4 {
+            color: #0d6efd;
+            border-bottom: 2px solid #0d6efd;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+    /* TABLE */
+    table {
+        border-radius: 8px;
+        overflow: hidden;
+    }
+
+    th {
+        background: #f8f9fc;
+        font-weight: 600;
+        color: #34495e;
+    }
+
+    td {
+        background: #ffffff;
+    }
+
+    th, td {
+        padding: 10px !important;
+    }
+
+    /* SIGNATURE */
+    .row.mt-5 div {
+        font-size: 14px;
+        color: #444;
+    }
+
+    /* ================= PRINT ================= */
+    @@media print {
+        body {
+            background: #fff !important;
+            margin: 0 !important;
+            padding: 0 !important;
+        }
+        /* HIDE LAYOUT ELEMENTS */
+        .sidebar, .topbar, .no-print {
+            display: none !important;
+        }
+        /* FULL WIDTH FOR PRINT */
+        .container, .print-container, .print-document {
+            max-width: 100% !important;
+            width: 100% !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            box-shadow: none !important;
+            border: none !important;
+        }
+
+        table {
+            width: 100% !important;
+            border-collapse: collapse;
+        }
+
+        th {
+            background-color: #f2f2f2 !important;
+        }
+
+        th, td {
+            border: 1px solid #000 !important;
+            padding: 8px !important;
+        }
+
+        img {
+            max-height: 80px;
+        }
+    }
+
+    }
+</style>

@@ -1,0 +1,43 @@
+﻿@model IEnumerable<Health_Insurance.Models.Policy>
+@{
+    Layout = "_AdminLayout";
+    ViewData["Title"] = "Policies List";
+}
+
+<h3 class="fw-bold text-primary mb-3">📄 Policies</h3>
+<a asp-action="Create" class="btn logout-btn mb-3">+ Add Policy</a>
+
+<table class="table table-hover table-bordered align-middle">
+    <thead class="table-light">
+        <tr>
+            <th>Name</th>
+            <th>Amount</th>
+            <th>EMI</th>
+            <th>Company</th>
+            <th>Hospital</th>
+            <th>Date</th>
+            <th class="text-center">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var p in Model)
+        {
+            <tr>
+                <td>@p.PolicyName</td>
+                <td>@p.Amount</td>
+                <td>@p.Emi</td>
+                <td>@p.Company?.CompanyName</td>
+                <td>@p.Medical?.HospitalName</td>
+                <td>@p.RequestDate?.ToShortDateString()</td>
+                <td class="text-center">
+                    <a asp-action="Edit" asp-route-id="@p.PolicyId" class="text-warning me-3" title="Edit">
+                        <i class="fas fa-edit fa-lg"></i>
+                    </a>
+                    <a asp-action="Delete" asp-route-id="@p.PolicyId" class="text-danger" title="Delete">
+                        <i class="fas fa-trash-alt fa-lg"></i>
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,44 @@
+﻿@model Health_Insurance.Models.PoliciesOnEmployees
+@{
+    ViewData["Title"] = "Assign Policy to Employee";
+    Layout = "_AdminLayout";
+}
+
+<div class="container mt-4" style="max-width:700px;">
+    <h2 class="text-center text-primary mb-4">@ViewData["Title"]</h2>
+
+    <form asp-action="Create" method="post">
+        <div asp-validation-summary="All" class="text-danger mb-3"></div>
+
+        <div class="mb-3">
+            <label class="form-label">Select Employee</label>
+            <select asp-for="EmpNo" class="form-select" asp-items="ViewBag.Employees">
+                <option value="">-- Choose Employee --</option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Select Policy</label>
+            <select asp-for="PolicyId" class="form-select" asp-items="ViewBag.Policies">
+                <option value="">-- Choose Policy --</option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="PStartDate" class="form-label"></label>
+            <input asp-for="PStartDate" type="date" class="form-control" />
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="PEndDate" class="form-label"></label>
+            <input asp-for="PEndDate" type="date" class="form-control" />
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="PolicyDuration" class="form-label"></label>
+            <input asp-for="PolicyDuration" type="number" class="form-control" />
+        </div>
+
+        <button type="submit" class="btn btn-primary w-100">Assign Policy</button>
+    </form>
+</div>

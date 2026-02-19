@@ -1,0 +1,83 @@
+﻿@page
+@model RegisterModel
+@{
+    ViewData["Title"] = "Employee Register";
+    Layout = "_AdminLayout";
+}
+
+<div class="container mt-5" style="max-width:800px;">
+    <h2 class="text-center mb-4">@ViewData["Title"]</h2>
+
+    <form method="post">
+        <div asp-validation-summary="All" class="text-danger mb-3"></div>
+
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <label asp-for="Input.FirstName" class="form-label"></label>
+                <input asp-for="Input.FirstName" class="form-control" />
+            </div>
+            <div class="col-md-6 mb-3">
+                <label asp-for="Input.LastName" class="form-label"></label>
+                <input asp-for="Input.LastName" class="form-control" />
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Input.Email" class="form-label"></label>
+            <input asp-for="Input.Email" class="form-control" />
+        </div>
+
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <label asp-for="Input.Password" class="form-label"></label>
+                <input asp-for="Input.Password" class="form-control" />
+            </div>
+            <div class="col-md-6 mb-3">
+                <label asp-for="Input.ContactNo" class="form-label"></label>
+                <input asp-for="Input.ContactNo" class="form-control" />
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Input.Designation" class="form-label"></label>
+            <input asp-for="Input.Designation" class="form-control" />
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Input.Address" class="form-label"></label>
+            <input asp-for="Input.Address" class="form-control" />
+        </div>
+
+        <div class="row">
+            <div class="col-md-4 mb-3">
+                <label asp-for="Input.State" class="form-label"></label>
+                <input asp-for="Input.State" class="form-control" />
+            </div>
+            <div class="col-md-4 mb-3">
+                <label asp-for="Input.City" class="form-label"></label>
+                <input asp-for="Input.City" class="form-control" />
+            </div>
+            <div class="col-md-4 mb-3">
+                <label asp-for="Input.Country" class="form-label"></label>
+                <input asp-for="Input.Country" class="form-control" />
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <label asp-for="Input.JoinDate" class="form-label"></label>
+                <input asp-for="Input.JoinDate" class="form-control" type="date" />
+            </div>
+            <div class="col-md-6 mb-3">
+                <label asp-for="Input.Salary" class="form-label"></label>
+                <input asp-for="Input.Salary" class="form-control" />
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary w-100 mt-3">Register Employee</button>
+    </form>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

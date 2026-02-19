@@ -1,0 +1,38 @@
+﻿@model IEnumerable<Health_Insurance.Models.PolicyRequestDetails>
+@{
+    Layout = "_EmployeeLayout";
+    ViewData["Title"] = "My Policy Requests";
+}
+
+<h3 class="fw-bold text-primary mb-4">📋 My Policy Requests</h3>
+
+<table class="table table-bordered table-hover align-middle">
+    <thead class="table-light">
+        <tr>
+            <th>Policy</th>
+            <th>Company</th>
+            <th>Requested On</th>
+            <th>Status</th>
+            <th>Admin Remarks</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var r in Model)
+        {
+            string badgeClass = r.Status switch
+            {
+                "Approved" => "badge bg-success",
+                "Rejected" => "badge bg-danger",
+                _ => "badge bg-warning text-dark"
+            };
+
+            <tr>
+                <td>@r.Policy?.PolicyName</td>
+                <td>@r.Policy?.Company?.CompanyName</td>
+                <td>@r.RequestDate?.ToShortDateString()</td>
+                <td><span class="@badgeClass">@r.Status</span></td>
+                <td>@r.AdminRemarks</td>
+            </tr>
+        }
+    </tbody>
+</table>

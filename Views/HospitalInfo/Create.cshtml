@@ -1,0 +1,39 @@
+﻿@model Health_Insurance.Models.HospitalInfo
+@{
+    ViewData["Title"] = "Add New Hospital";
+    Layout = "_AdminLayout";
+}
+
+<div class="container mt-4" style="max-width:600px;">
+    <h2 class="text-center mb-4">@ViewData["Title"]</h2>
+
+    <form method="post">
+        <div asp-validation-summary="All" class="text-danger mb-3"></div>
+
+        <div class="mb-3">
+            <label asp-for="HospitalName" class="form-label"></label>
+            <input asp-for="HospitalName" class="form-control" />
+            <span asp-validation-for="HospitalName" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="PhoneNo" class="form-label"></label>
+            <input asp-for="PhoneNo" class="form-control" />
+            <span asp-validation-for="PhoneNo" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Location" class="form-label"></label>
+            <input asp-for="Location" class="form-control" />
+            <span asp-validation-for="Location" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Url" class="form-label"></label>
+            <input asp-for="Url" class="form-control" placeholder="https://example.com" />
+            <span asp-validation-for="Url" class="text-danger"></span>
+        </div>
+
+        <button type="submit" class="btn logout-btn w-100 mt-3">Add Hospital</button>
+    </form>
+</div>

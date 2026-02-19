@@ -1,0 +1,68 @@
+﻿@model Health_Insurance.Models.EmpRegister
+@{
+    Layout = "_AdminLayout";
+    ViewData["Title"] = "Add Employee";
+}
+
+<h2 class="mb-4">Add New Employee</h2>
+
+<form asp-action="Create" method="post" class="row g-3">
+    <div class="col-md-6">
+        <label asp-for="FirstName" class="form-label"></label>
+        <input asp-for="FirstName" class="form-control" />
+    </div>
+    <div class="col-md-6">
+        <label asp-for="LastName" class="form-label"></label>
+        <input asp-for="LastName" class="form-control" />
+    </div>
+
+    <div class="col-md-6">
+        <label asp-for="Username" class="form-label">Email (Username)</label>
+        <input asp-for="Username" class="form-control" />
+    </div>
+
+    <div class="col-md-6">
+        <label for="password" class="form-label">Password</label>
+        <input type="password" name="password" class="form-control" placeholder="Enter password" required />
+    </div>
+
+    <div class="col-md-6">
+        <label asp-for="Designation" class="form-label"></label>
+        <input asp-for="Designation" class="form-control" />
+    </div>
+
+    <div class="col-md-6">
+        <label asp-for="ContactNo" class="form-label"></label>
+        <input asp-for="ContactNo" class="form-control" />
+    </div>
+
+    <div class="col-md-12">
+        <label asp-for="Address" class="form-label"></label>
+        <input asp-for="Address" class="form-control" />
+    </div>
+
+    <div class="col-md-4">
+        <label asp-for="City" class="form-label"></label>
+        <input asp-for="City" class="form-control" />
+    </div>
+
+    <div class="col-md-4">
+        <label asp-for="State" class="form-label"></label>
+        <input asp-for="State" class="form-control" />
+    </div>
+
+    <div class="col-md-4">
+        <label asp-for="Country" class="form-label"></label>
+        <input asp-for="Country" class="form-control" />
+    </div>
+
+    <div class="col-md-6">
+        <label asp-for="Salary" class="form-label"></label>
+        <input asp-for="Salary" class="form-control" />
+    </div>
+
+    <div class="col-12 mt-3">
+        <button type="submit" class="btn btn-primary px-4">Register Employee</button>
+        <a asp-action="Index" class="btn btn-secondary px-4">Cancel</a>
+    </div>
+</form>

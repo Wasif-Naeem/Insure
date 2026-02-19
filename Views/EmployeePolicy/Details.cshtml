@@ -1,0 +1,20 @@
+﻿@model Health_Insurance.Models.Policy
+@{
+    Layout = "_EmployeeLayout";
+    ViewData["Title"] = "Policy Details";
+}
+
+<h3 class="fw-bold text-primary mb-4">@Model.PolicyName</h3>
+
+<div class="card shadow p-4">
+    <p><strong>Company:</strong> @Model.Company?.CompanyName</p>
+    <p><strong>Amount:</strong> @Model.Amount</p>
+    <p><strong>EMI:</strong> @Model.Emi</p>
+    <p><strong>Hospital:</strong> @Model.Medical?.HospitalName</p>
+    <p><strong>Description:</strong> @Model.PolicyDesc</p>
+    <form asp-action="RequestPolicy" method="post">
+        <input type="hidden" name="policyId" value="@Model.PolicyId" />
+        <button type="submit" class="btn btn-success mt-3">Request this Policy</button>
+        <a asp-action="Index" class="btn btn-secondary mt-3">Back</a>
+    </form>
+</div>

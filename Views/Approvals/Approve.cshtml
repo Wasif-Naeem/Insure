@@ -1,0 +1,26 @@
+﻿@model Health_Insurance.Models.PolicyRequestDetails
+@{
+    Layout = "_AdminLayout";
+    ViewData["Title"] = "Approve Policy Request";
+}
+
+<h3 class="fw-bold text-success mb-3">Approve Policy Request</h3>
+
+<div class="card shadow p-4">
+    <h5>@Model.Policy?.PolicyName</h5>
+    <p><strong>Employee:</strong> @Model.Employee?.FirstName @Model.Employee?.LastName</p>
+    <p><strong>Company:</strong> @Model.Policy?.Company?.CompanyName</p>
+    <p><strong>Requested On:</strong> @Model.RequestDate?.ToShortDateString()</p>
+
+    <form asp-action="Approve" method="post">
+        <input type="hidden" name="id" value="@Model.RequestId" />
+
+        <div class="mb-3">
+            <label for="adminRemarks" class="form-label">Admin Remarks</label>
+            <textarea name="adminRemarks" class="form-control" rows="3"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-success">Approve</button>
+        <a asp-action="PendingRequests" class="btn btn-secondary">Cancel</a>
+    </form>
+</div>

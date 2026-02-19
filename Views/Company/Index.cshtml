@@ -1,0 +1,37 @@
+﻿@model IEnumerable<Health_Insurance.Models.CompanyDetails>
+@{
+    Layout = "_AdminLayout";
+    ViewData["Title"] = "Company List";
+}
+
+<h3 class="fw-bold text-primary mb-3">🏢 Company List</h3>
+<a asp-action="Create" class="btn logout-btn mb-3">+ Add New Company</a>
+
+<table class="table table-bordered table-hover align-middle">
+    <thead class="table-light">
+        <tr>
+            <th>Company Name</th>
+            <th>Address</th>
+            <th>Phone</th>
+            <th>Website</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var c in Model)
+        {
+            <tr>
+                <td>@c.CompanyName</td>
+                <td>@c.Address</td>
+                <td>@c.Phone</td>
+                <td><a href="@c.CompanyUrl" target="_blank">@c.CompanyUrl</a></td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@c.CompanyId" class="text-warning"> <i class="fas fa-edit fa-lg"></i></a>
+                    <a asp-action="Delete" asp-route-id="@c.CompanyId" class="text-danger"> 
+                        <i class="fas fa-trash-alt fa-lg"></i>
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

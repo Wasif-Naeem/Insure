@@ -1,0 +1,88 @@
+﻿@model Health_Insurance.Models.EmpRegister
+@{
+    ViewData["Title"] = "Edit Employee";
+    Layout = "_AdminLayout";
+}
+
+<div class="container mt-4" style="max-width:700px;">
+    <h2 class="text-center mb-4 text-primary">@ViewData["Title"]</h2>
+
+    <form asp-action="Edit" method="post">
+        <input type="hidden" asp-for="EmpNo" />
+        <div asp-validation-summary="All" class="text-danger mb-3"></div>
+
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <label asp-for="FirstName" class="form-label"></label>
+                <input asp-for="FirstName" class="form-control" />
+                <span asp-validation-for="FirstName" class="text-danger"></span>
+            </div>
+            <div class="col-md-6 mb-3">
+                <label asp-for="LastName" class="form-label"></label>
+                <input asp-for="LastName" class="form-control" />
+                <span asp-validation-for="LastName" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Username" class="form-label">Email (Username)</label>
+            <input asp-for="Username" class="form-control" readonly />
+        </div>
+
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <label asp-for="Designation" class="form-label"></label>
+                <input asp-for="Designation" class="form-control" />
+                <span asp-validation-for="Designation" class="text-danger"></span>
+            </div>
+            <div class="col-md-6 mb-3">
+                <label asp-for="ContactNo" class="form-label"></label>
+                <input asp-for="ContactNo" class="form-control" />
+                <span asp-validation-for="ContactNo" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4 mb-3">
+                <label asp-for="City" class="form-label"></label>
+                <input asp-for="City" class="form-control" />
+                <span asp-validation-for="City" class="text-danger"></span>
+            </div>
+            <div class="col-md-4 mb-3">
+                <label asp-for="State" class="form-label"></label>
+                <input asp-for="State" class="form-control" />
+                <span asp-validation-for="State" class="text-danger"></span>
+            </div>
+            <div class="col-md-4 mb-3">
+                <label asp-for="Country" class="form-label"></label>
+                <input asp-for="Country" class="form-control" />
+                <span asp-validation-for="Country" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Salary" class="form-label"></label>
+            <input asp-for="Salary" class="form-control" />
+            <span asp-validation-for="Salary" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Address" class="form-label"></label>
+            <textarea asp-for="Address" class="form-control" rows="2"></textarea>
+            <span asp-validation-for="Address" class="text-danger"></span>
+        </div>
+
+        <!-- ✅ Password Reset -->
+        <div class="mb-4 mt-4 border-top pt-3">
+            <h5 class="text-secondary mb-3">Reset Password (optional)</h5>
+            <label for="newPassword" class="form-label">New Password</label>
+            <input type="password" name="newPassword" id="newPassword" class="form-control" placeholder="Enter new password" />
+            <small class="text-muted">Leave blank if you don't want to change password.</small>
+        </div>
+
+        <div class="d-flex justify-content-between mt-4">
+            <a asp-action="Index" class="btn btn-secondary px-4">Back</a>
+            <button type="submit" class="btn btn-primary px-4">Update</button>
+        </div>
+    </form>
+</div>

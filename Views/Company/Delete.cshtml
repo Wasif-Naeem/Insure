@@ -1,0 +1,14 @@
+﻿@model Health_Insurance.Models.CompanyDetails
+@{
+    Layout = "_AdminLayout";
+    ViewData["Title"] = "Delete Company";
+}
+<h3 class="fw-bold text-danger mb-3">Delete Company</h3>
+<div class="alert alert-warning">
+    Are you sure you want to delete <strong>@Model.CompanyName</strong>?
+</div>
+<form asp-action="Delete">
+    <input type="hidden" asp-for="CompanyId" />
+    <button type="submit" class="btn btn-danger">Confirm Delete</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+</form>

@@ -1,0 +1,52 @@
+﻿@model IEnumerable<Health_Insurance.Models.HospitalInfo>
+@{
+    ViewData["Title"] = "Hospital List";
+    Layout = "_AdminLayout";
+}
+
+<div class="container mt-4">
+    <h2 class="mb-4">Hospitals</h2>
+
+    <a asp-action="Create" class="btn logout-btn mb-3">
+        <i class="fas fa-plus"></i> Add New Hospital
+    </a>
+
+    <table class="table table-bordered table-hover  ">
+        <thead class="table-light">
+            <tr>
+                <th>Hospital Name</th>
+                <th>Phone No</th>
+                <th>Location</th>
+                <th>URL</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.HospitalName</td>
+                    <td>@item.PhoneNo</td>
+                    <td>@item.Location</td>
+                    <td>
+                        @if (!string.IsNullOrEmpty(item.Url))
+                        {
+                            <a href="@item.Url" target="_blank">Visit</a>
+                        }
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.HospitalId" class="text-warning me-2">
+                            <i class="fas fa-edit"></i>
+                        </a>
+                        <a asp-action="Details" asp-route-id="@item.HospitalId" class="text-info me-2">
+                            <i class="fas fa-eye"></i>
+                        </a>
+                        <a asp-action="Delete" asp-route-id="@item.HospitalId" class="text-danger">
+                            <i class="fas fa-trash-alt"></i>
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

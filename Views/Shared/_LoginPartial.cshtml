@@ -1,0 +1,34 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using Health_Insurance.Models
+
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+@if (!SignInManager.IsSignedIn(User))
+{
+    <!--  Only show for guests (not logged in) -->
+    <ul class="navbar-nav ms-auto d-flex flex-row">
+        <li class="nav-item me-2">
+            <a class="btn btn-outline-primary px-3" id="login" asp-area="Identity" asp-page="/Account/Login">Login</a>
+        </li>
+        
+    </ul>
+}
+else if (User.IsInRole("Admin"))
+{
+    <!--  Only Admin Dashboard button -->
+    <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+            <a class="btn btn-primary px-3" asp-controller="AdminDashboard" asp-action="Index">Admin Dashboard</a>
+        </li>
+    </ul>
+}
+else if (User.IsInRole("Employee"))
+{
+    <!-- Only Employee Dashboard button -->
+    <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+            <a class="btn btn-primary px-3" asp-controller="EmployeeDashboard" asp-action="Index">My Dashboard</a>
+        </li>
+    </ul>
+}

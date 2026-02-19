@@ -1,0 +1,31 @@
+﻿@{
+    Layout = "_EmployeeLayout";
+    ViewData["Title"] = "My Requests";
+}
+@model IEnumerable<Health_Insurance.Models.PolicyRequestDetails>
+
+<h3>My Policy Requests</h3>
+<hr />
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Policy Name</th>
+            <th>Amount</th>
+            <th>EMI</th>
+            <th>Status</th>
+            <th>Request Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var req in Model)
+        {
+            <tr>
+                <td>@req.PolicyName</td>
+                <td>@req.PolicyAmount</td>
+                <td>@req.Emi</td>
+                <td>@req.Status</td>
+                <td>@req.RequestDate?.ToString("dd MMM yyyy")</td>
+            </tr>
+        }
+    </tbody>
+</table>

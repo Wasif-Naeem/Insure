@@ -1,0 +1,64 @@
+﻿@model Health_Insurance.Models.Policy
+@{
+    Layout = "_AdminLayout";
+    ViewData["Title"] = "Edit Policy";
+}
+
+<h3 class="fw-bold text-primary mb-3">Edit Policy</h3>
+
+<form asp-action="Edit" method="post">
+    <input type="hidden" asp-for="PolicyId" />
+
+    <div class="mb-3">
+        <label asp-for="PolicyName" class="form-label"></label>
+        <input asp-for="PolicyName" class="form-control" />
+        <span asp-validation-for="PolicyName" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="PolicyDesc" class="form-label"></label>
+        <textarea asp-for="PolicyDesc" class="form-control"></textarea>
+        <span asp-validation-for="PolicyDesc" class="text-danger"></span>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4 mb-3">
+            <label asp-for="Amount" class="form-label"></label>
+            <input asp-for="Amount" class="form-control" type="number" step="0.01" />
+            <span asp-validation-for="Amount" class="text-danger"></span>
+        </div>
+        <div class="col-md-4 mb-3">
+            <label asp-for="Emi" class="form-label"></label>
+            <input asp-for="Emi" class="form-control" type="number" step="0.01" />
+            <span asp-validation-for="Emi" class="text-danger"></span>
+        </div>
+        <div class="col-md-4 mb-3">
+            <label asp-for="RequestDate" class="form-label"></label>
+            <input asp-for="RequestDate" class="form-control" type="date" />
+            <span asp-validation-for="RequestDate" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="CompanyId" class="form-label">Select Company</label>
+        <select asp-for="CompanyId" asp-items="ViewBag.CompanyList" class="form-select">
+            <option value="">-- Select Company --</option>
+        </select>
+        <span asp-validation-for="CompanyId" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="MedicalId" class="form-label">Select Hospital</label>
+        <select asp-for="MedicalId" asp-items="ViewBag.MedicalList" class="form-select">
+            <option value="">-- Select Hospital --</option>
+        </select>
+        <span asp-validation-for="MedicalId" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn logout-btn">Update</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

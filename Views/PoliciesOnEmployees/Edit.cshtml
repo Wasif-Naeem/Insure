@@ -1,0 +1,51 @@
+﻿@model Health_Insurance.Models.PoliciesOnEmployees
+@{
+    ViewData["Title"] = "Edit Assigned Policy";
+    Layout = "_AdminLayout";
+}
+
+<div class="container mt-4" style="max-width:700px;">
+    <h2 class="text-center text-primary mb-4">@ViewData["Title"]</h2>
+
+    <form asp-action="Edit" method="post">
+        <input type="hidden" asp-for="Id" />
+        <div asp-validation-summary="All" class="text-danger mb-3"></div>
+
+        <div class="mb-3">
+            <label asp-for="EmpNo" class="form-label"></label>
+            <select asp-for="EmpNo" class="form-select" asp-items="ViewBag.Employees"></select>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="PolicyId" class="form-label"></label>
+            <select asp-for="PolicyId" class="form-select" asp-items="ViewBag.Policies"></select>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <label asp-for="PStartDate" class="form-label"></label>
+                <input asp-for="PStartDate" type="date" class="form-control" />
+            </div>
+            <div class="col-md-6 mb-3">
+                <label asp-for="PEndDate" class="form-label"></label>
+                <input asp-for="PEndDate" type="date" class="form-control" />
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Status" class="form-label"></label>
+            <select asp-for="Status" class="form-select">
+                <option>Active</option>
+                <option>Expired</option>
+                <option>Cancelled</option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Remarks" class="form-label"></label>
+            <textarea asp-for="Remarks" class="form-control" rows="2"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary w-100">Save Changes</button>
+    </form>
+</div>

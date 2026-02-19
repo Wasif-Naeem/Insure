@@ -1,0 +1,34 @@
+﻿@model Health_Insurance.Models.CompanyDetails
+@{
+    Layout = "_AdminLayout";
+    ViewData["Title"] = "Add Company";
+}
+
+<h3 class="fw-bold text-primary mb-3">Add New Company</h3>
+
+<form asp-action="Create" method="post">
+    <div class="mb-3">
+        <label asp-for="CompanyName" class="form-label"></label>
+        <input asp-for="CompanyName" class="form-control" />
+        <span asp-validation-for="CompanyName" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Address" class="form-label"></label>
+        <input asp-for="Address" class="form-control" />
+    </div>
+    <div class="mb-3">
+        <label asp-for="Phone" class="form-label"></label>
+        <input asp-for="Phone" class="form-control" />
+    </div>
+    <div class="mb-3">
+        <label asp-for="CompanyUrl" class="form-label"></label>
+        <input asp-for="CompanyUrl" class="form-control" type="url" />
+        <span asp-validation-for="CompanyUrl" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn logout-btn">Save</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

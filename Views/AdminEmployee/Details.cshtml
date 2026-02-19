@@ -1,0 +1,28 @@
+﻿@model Health_Insurance.Models.EmpRegister
+@{
+    ViewData["Title"] = "Employee Details";
+    Layout = "_AdminLayout";
+}
+
+<div class="container mt-4" style="max-width:700px;">
+    <h2 class="mb-4">Employee Details</h2>
+
+    <div class="card shadow-sm border-0">
+        <div class="card-body">
+            <h4 class="text-primary mb-3">@Model.FirstName @Model.LastName</h4>
+
+            <p><strong>Email:</strong> @Model.Username</p>
+            <p><strong>Designation:</strong> @Model.Designation</p>
+            <p><strong>Contact:</strong> @Model.ContactNo</p>
+            <p><strong>Address:</strong> @Model.Address</p>
+            <p><strong>City:</strong> @Model.City</p>
+            <p><strong>Country:</strong> @Model.Country</p>
+            <p><strong>Salary:</strong> @Model.Salary</p>
+
+            <div class="d-flex justify-content-between mt-4">
+                <a asp-action="Edit" asp-route-id="@Model.EmpNo" class="btn btn-warning px-4">Edit</a>
+                <a asp-action="Index" class="btn btn-secondary px-4">Back</a>
+            </div>
+        </div>
+    </div>
+</div>

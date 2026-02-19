@@ -1,0 +1,39 @@
+﻿@model IEnumerable<Health_Insurance.Models.Policy>
+@{
+    Layout = "_EmployeeLayout";
+
+    ViewData["Title"] = "Policy Results";
+}
+
+<div class="container mt-4">
+    <h3>Available Policies</h3>
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Policy Name</th>
+                <th>Description</th>
+                <th>Amount</th>
+                <th>EMI</th>
+                <th>Company</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var p in Model)
+            {
+                <tr>
+                    <td>@p.PolicyName</td>
+                    <td>@p.PolicyDesc</td>
+                    <td>@p.Amount</td>
+                    <td>@p.Emi</td>
+                    <td>@p.Company?.CompanyName</td>
+                    <td>
+                        <form method="post" asp-action="RequestPolicy" asp-route-policyId="@p.PolicyId">
+                            <button class="btn btn-sm btn-success">Request</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

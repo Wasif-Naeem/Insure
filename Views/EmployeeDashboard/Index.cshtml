@@ -1,0 +1,125 @@
+﻿@model IEnumerable<Health_Insurance.Models.PolicyRequestDetails>
+@{
+    Layout = "_EmployeeLayout";
+    ViewData["Title"] = "Employee Dashboard";
+}
+
+<div class="dashboard-container">
+    <!-- Hero Section -->
+    <div class="hero-section">
+        <div class="hero-content">
+            <h1 class="hero-title">
+                <span class="gradient-text">Welcome Back</span>
+            </h1>
+            <p class="hero-subtitle">Here’s what’s happening with your insurance today</p>
+        </div>
+    </div>
+
+    <!-- Stats Grid -->
+    <div class="stats-grid">
+        <div class="stat-card stat-card-1">
+            <div class="stat-icon">
+                <i class="fas fa-file-medical fa-2x"></i>
+            </div>
+            <div class="stat-content">
+                <div class="stat-value">@ViewBag.ActivePolicies</div>
+                <div class="stat-label">Active Policies</div>
+            </div>
+        </div>
+
+        <div class="stat-card stat-card-2">
+            <div class="stat-icon">
+                <i class="fas fa-clock fa-2x"></i>
+            </div>
+            <div class="stat-content">
+                <div class="stat-value">@ViewBag.PendingRequests</div>
+                <div class="stat-label">Pending Requests</div>
+            </div>
+        </div>
+
+        <div class="stat-card stat-card-3">
+            <div class="stat-icon">
+                <i class="fas fa-times-circle fa-2x"></i>
+            </div>
+            <div class="stat-content">
+                <div class="stat-value">@ViewBag.RejectedPolicies</div>
+                <div class="stat-label">Rejected Policies</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Recent Requests Table -->
+    <div class="content-grid">
+        <div class="requests-panel">
+            <div class="panel-header">
+                <h2 class="panel-title">Recent Policy Requests</h2>
+                <a asp-controller="EmployeePolicy" asp-action="MyRequests" class="view-all-btn">
+                    View All
+                    <i class="fas fa-arrow-right ms-1"></i>
+                </a>
+            </div>
+
+            <div class="requests-table-wrapper">
+                <table class="requests-table">
+                    <thead>
+                        <tr>
+                            <th>Policy Name</th>
+                            <th>Amount</th>
+                            <th>EMI</th>
+                            <th>Status</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (!Model.Any())
+                        {
+                            <tr>
+                                <td colspan="5" class="text-center text-muted py-3">No requests yet.</td>
+                            </tr>
+                        }
+                        else
+                        {
+                            @foreach (var req in Model)
+                            {
+                                string badgeClass = req.Status switch
+                                {
+                                    "Approved" => "status-badge status-approved",
+                                    "Rejected" => "status-badge status-rejected",
+                                    _ => "status-badge status-pending"
+                                };
+
+                                <tr class="table-row">
+                                    <td>
+                                        <div class="policy-name">
+                                            <div class="policy-icon policy-icon-health"></div>
+                                            <span>@req.Policy?.PolicyName</span>
+                                        </div>
+                                    </td>
+                                    <td><strong>@req.Policy?.Amount?.ToString("N0") PKR</strong></td>
+                                    <td>@req.Policy?.Emi?.ToString("N0") PKR / Month</td>
+                                    <td>
+                                        <span class="@badgeClass">
+                                            <span class="status-dot"></span>
+                                            @req.Status
+                                        </span>
+                                    </td>
+                                    <td>@req.RequestDate?.ToString("dd-MMM-yyyy")</td>
+                                </tr>
+                            }
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('.stat-card').forEach((card, index) => {
+                card.style.animationDelay = `${index * 0.1}s`;
+            });
+        });
+    </script>
+}
