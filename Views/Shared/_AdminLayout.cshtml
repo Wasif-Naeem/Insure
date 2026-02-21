@@ -18,6 +18,43 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
     <style>
+
+        /* ================= PRINT FIX ================= */
+        @@media print {
+            /* Hide Sidebar & Topbar */
+            .sidebar,
+            .topbar,
+            .no-print {
+                display: none !important;
+            }
+            /* Remove content shift (IMPORTANT) */
+            .content {
+                margin-left: 0 !important;
+                margin-top: 0 !important;
+                padding: 0 !important;
+                width: 100% !important;
+            }
+            /* Full width layout */
+            .container,
+            .print-container,
+            .print-document {
+                width: 100% !important;
+                max-width: 100% !important;
+                margin: 0 !important;
+                padding: 0 !important;
+                box-shadow: none !important;
+                border: none !important;
+            }
+            /* Remove background effects */
+            body {
+                background: #ffffff !important;
+            }
+
+                body::before {
+                    display: none !important;
+                }
+        }
+
         :root {
             --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
